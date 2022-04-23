@@ -35,8 +35,6 @@ export const HomePage: FC = () => {
           <p>Stuff</p>
           <p>Stuff</p>
           <p>Stuff</p>
-          <p>Stuff</p>
-          <p>Stuff</p>
         </Stack>
       </LayoutFooter>
     </Layout>
