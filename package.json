@@ -4,14 +4,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ganache": "ganache --wallet.seed myCustomSeed"
   },
   "dependencies": {
+    "@types/react": "18.0.1",
+    "@types/styled-components": "^5.1.25",
+    "@types/web3": "^1.2.2",
+    "ganache": "^7.0.4",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.6.3",
+    "web3": "^1.7.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@types/react": "18.0.1",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4"
   }
