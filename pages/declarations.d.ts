@@ -6,8 +6,15 @@ declare module '*.scss' {
 declare module "*.module.css";
 
 
+declare module '*.jpg';
+
 declare namespace JSX {
     interface IntrinsicElements {
         'sw-auth': any
     }
+   
+}
+
+declare interface Confetti {
+    props: undefined
 }

@@ -11,12 +11,7 @@ export const Card = styled.div`
 export const interactiveCardStyle = css`
   &:hover,
   &:focus {
-    background-color: ${Colors.brandSecondary};
+    background-color: ${Colors.brandTertiary};
     cursor: pointer;
   }
-`;
-
-export const SelectableCard = styled(Card)`
-  ${interactiveCardStyle};
-  border-color: ${(props) => props["aria-checked"] && Colors.brandPrimaryLight};
 `;

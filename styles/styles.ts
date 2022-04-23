@@ -1,8 +1,9 @@
 import { createGlobalStyle, css } from "styled-components";
 
 export enum Colors {
+  brandBackground = "#14142B",
   brandPrimary = '#DCE7E7',
-  brandSecondary= '#F9EEE0',
+  brandSecondary= '#1EECA3',
   brandTertiary = '#D7DEDE',
   brandPrimaryLight = '#F1F6F6',
   brandBorder = '#cce4f3',
@@ -66,8 +67,8 @@ export const GlobalStyle = createGlobalStyle`
     /* Set font size to 62.5% so 1rem = 10px in most browsers */
     font-size: 62.5%;
     line-height: 1.42857143;
-    color: ${Colors.black};
-    background-color: ${Colors.brandSecondary};
+    color: white;
+    background-color: white;
     /* avoid layout jumping, because of scroll bars */
     /* but only on bigger screens to avoid non-centered content */
     /* https://stackoverflow.com/a/44000322/1337972 */

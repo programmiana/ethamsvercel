@@ -40,5 +40,5 @@ type Props = {
   children: ReactChild;
 };
 export const Container: FC<Props> = ({ children }) => {
-  return <Styled fullwidth={false}>{children}</Styled>;
+  return <Styled fullwidth={true}>{children}</Styled>;
 };
