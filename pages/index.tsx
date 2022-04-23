@@ -7,15 +7,18 @@ import {
   LayoutMain,
 } from "./components/layout";
 import { Stack } from "./components/stack";
-import { SVGMain } from "./components/svg-main";
 import Header from "./header";
 import { useMetamask } from "./hooks/use-metamask";
 import Welcome from "./welcome";
+import sessionStorage from "sessionstorage";
 
 export const HomePage: FC = () => {
   const metaMask = useMetamask();
 
-  console.log(metaMask);
+  const skillWalletData = sessionStorage.getItem("skillWallet");
+
+  console.log(`skillwallet:${skillWalletData}`);
+
   if (!metaMask.connected)
     return <p>Please connect to Metamask before proceeding.</p>;
   return (
@@ -26,6 +29,12 @@ export const HomePage: FC = () => {
         </Container>
       </LayoutHeader>
       <LayoutMain>
+        <div>
+          <Sw-auth
+            partner-key="959811d56b636af13b6cb46a240d6ac4aebe42d5"
+            use-dev="true"
+          />
+        </div>
         <Welcome
           eth={metaMask.eth}
           connected={metaMask.connected}
