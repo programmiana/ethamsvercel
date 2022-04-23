@@ -4,3 +4,10 @@ declare module '*.scss' {
 }
 
 declare module "*.module.css";
+
+
+declare namespace JSX {
+    interface IntrinsicElements {
+        'sw-auth': any
+    }
+}

@@ -11,16 +11,17 @@ import Header from "./header";
 import { useMetamask } from "./hooks/use-metamask";
 import Welcome from "./welcome";
 import sessionStorage from "sessionstorage";
+import { useSkillWallet } from "./hooks/use-skill-wallet";
 
 export const HomePage: FC = () => {
   const metaMask = useMetamask();
 
-  const skillWalletData = sessionStorage.getItem("skillWallet");
-
-  console.log(`skillwallet:${skillWalletData}`);
+  const data = useSkillWallet();
 
   if (!metaMask.connected)
     return <p>Please connect to Metamask before proceeding.</p>;
+
+  console.log(data);
   return (
     <Layout>
       <LayoutHeader>
@@ -30,7 +31,7 @@ export const HomePage: FC = () => {
       </LayoutHeader>
       <LayoutMain>
         <div>
-          <Sw-auth
+          <sw-auth
             partner-key="959811d56b636af13b6cb46a240d6ac4aebe42d5"
             use-dev="true"
           />
