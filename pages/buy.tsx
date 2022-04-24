@@ -17,9 +17,9 @@ export const HomePage: FC = () => {
   return (
     <>
       {skillWalletData && skillWalletData.isCoreTeamMember ? (
-        <Welcome skillWalletData={skillWalletData} />
-      ) : (
         <Donor skillWalletData={skillWalletData} />
+      ) : (
+        <Welcome skillWalletData={skillWalletData} />
       )}
     </>
   );

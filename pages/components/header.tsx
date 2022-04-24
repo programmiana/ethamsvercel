@@ -8,10 +8,6 @@ type WelcomeProps = {
   skillWalletData: SkillWallet;
 };
 
-const StyledLink = styled(Link)`
-  cursor: pointer;
-`;
-
 export const Header: FC<WelcomeProps> = ({ skillWalletData }) => {
   if (!skillWalletData)
     return (

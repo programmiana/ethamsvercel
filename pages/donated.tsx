@@ -96,8 +96,7 @@ export const HomePage: FC = () => {
       </Stack>
       <h1>{"Your Contributions".toUpperCase()}</h1>
       <Stack gap={3} templateColumns="1fr 1fr" flow="row">
-        <p>Offset 0 tons of carbon</p>
-
+        <p>Donated 10 matics</p>
         <Stack>
           <svg
             width="584"
@@ -155,7 +154,7 @@ export const HomePage: FC = () => {
             />
           </svg>
         </Stack>
-        <p>Donated 2 matics</p>
+        <p>Offset 0 tons of carbon</p>
 
         <Stack>
           <svg

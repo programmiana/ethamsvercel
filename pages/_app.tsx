@@ -28,13 +28,7 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </Container>
         </LayoutMain>
-        <LayoutFooter>
-          <Stack justifyContent="end" gap={5} alignItems="center">
-            <p>Stuff</p>
-            <p>Stuff</p>
-            <p>Stuff</p>
-          </Stack>
-        </LayoutFooter>
+        <LayoutFooter></LayoutFooter>
       </Layout>
     </>
   );

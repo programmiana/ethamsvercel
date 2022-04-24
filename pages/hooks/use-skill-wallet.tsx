@@ -9,8 +9,6 @@ export function useSkillWallet() {
     null
   );
   const [connected, setConnected] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter();
 
   useEffect(() => {
     InitSwAuth();

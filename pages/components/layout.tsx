@@ -31,6 +31,6 @@ export const LayoutMain = styled.div`
 
 export const LayoutFooter = styled.div`
   /* height: 10vh; */
-  background-color: ${Colors.brandPrimary};
+  background-color: ${Colors.brandBackground};
   grid-area: footer;
 `;
