@@ -3,7 +3,20 @@ import Web3 from "web3";
 import { Contract } from "web3-eth-contract";
 import { AbiItem } from "web3-utils";
 import NFTContractBuild from "../../truffle/build/contracts/NFT.json";
+import ColorNFTBuild from "../../truffle/build/contracts/Color.json";
 // needed to satisfy ts
+
+function colorHexToString(hexStr) {
+  return "#" + hexStr.substring(2);
+}
+
+function colorStringToBytes(str) {
+  if (str.length !== 7 || str.charAt(0) !== "#") {
+    throw new Error("invalid color string");
+  }
+  const hexStr = "0x" + str.substring(1);
+  return Web3.utils.hexToBytes(hexStr);
+}
 
 export function useLoadBlockchainData() {
   const [networkId, setNetworkId] = useState<number>();
@@ -14,7 +27,6 @@ export function useLoadBlockchainData() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await web3.eth.net.getId();
-      console.log(response);
       setNetworkId(response);
     };
 
@@ -34,25 +46,46 @@ export function useLoadBlockchainData() {
   useEffect(() => {
     if (!networkId) return;
 
+    console.log(ColorNFTBuild);
+
     const fetchData = async () => {
       const contract = new web3.eth.Contract(
-        NFTContractBuild.abi as unknown as AbiItem,
-        NFTContractBuild.networks[networkId].address
+        ColorNFTBuild.abi as unknown as AbiItem,
+        "0x153cd07cbf55f48ee39898968bc5de3b62e8c0a3"
       );
-
       setActiveContract(contract);
-      console.log(contract);
+      const colorstr = colorHexToString("#FF00FF");
+
+      const tx = await contract.methods
+        .mint(colorStringToBytes(colorstr))
+        .send({ from: selectedAccount })
+        .once("receipt", (receipt) => {
+          console.log("transaction receipt: ", receipt);
+
+          console.log(tx);
+        });
     };
 
     fetchData().catch((e) => console.log(e));
-  }, [networkId]);
+  }, [networkId, selectedAccount]);
+
+  // useEffect(() => {
+  //   if (!activeContract) return;
+  //   console.log(activeContract);
+
+  //   const fetchData = async () => {
+  //     const tx = await activeContract.methods
+  //       .mint(2)
+  //       .then((bla) => console.log(bla));
+
+  //     console.log(tx);
+  //   };
+
+  //   fetchData().catch((e) => console.log(e));
+  // }, [activeContract]);
 
   const mintToken = () => {
-    if (selectedAccount) {
-      return activeContract.methods
-        .mint(selectedAccount)
-        .send({ from: selectedAccount });
-    }
+    // return activeContract.methods.totalSupply().call();
   };
 
   return {

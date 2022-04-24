@@ -7,7 +7,8 @@ export enum Colors {
   brandTertiary = '#D7DEDE',
   brandPrimaryLight = '#F1F6F6',
   brandBorder = '#cce4f3',
-  black = '#202227'
+  black = '#202227',
+  inactive = '#f9f9f9'
 }
 
 export enum Breakpoints {
@@ -58,8 +59,6 @@ const modernReset = css`
 `;
 
 export const GlobalStyle = createGlobalStyle`
-
-
   ${modernReset};
   
   html {
@@ -67,7 +66,7 @@ export const GlobalStyle = createGlobalStyle`
     /* Set font size to 62.5% so 1rem = 10px in most browsers */
     font-size: 62.5%;
     line-height: 1.42857143;
-    color: white;
+    color: lightgray;
     background-color: white;
     /* avoid layout jumping, because of scroll bars */
     /* but only on bigger screens to avoid non-centered content */

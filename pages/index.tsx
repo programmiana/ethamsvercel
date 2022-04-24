@@ -1,46 +1,40 @@
+import Link from "next/link";
 import { FC } from "react";
-import { Container } from "./components/container";
-import Header from "./components/header";
-import {
-  Layout,
-  LayoutFooter,
-  LayoutHeader,
-  LayoutMain,
-} from "./components/layout";
+import styled from "styled-components";
+import { Colors } from "../styles/styles";
+
+import { Banner } from "./components/banner";
 import { Stack } from "./components/stack";
-import { useMetamask } from "./hooks/use-metamask";
-import { useSkillWallet } from "./hooks/use-skill-wallet";
-import Welcome from "./welcome";
 
-export const HomePage: FC = () => {
-  const metaMask = useMetamask();
-  const { skillWalletData } = useSkillWallet();
-  if (!metaMask.connected)
-    return <p>Please connect to Metamask before proceeding.</p>;
+const StyledLink = styled.a`
+  padding: 2rem 4rem;
+  border: 1px solid ${Colors.brandSecondary};
+  color: ${Colors.brandSecondary};
+  cursor: pointer;
+  background-color: transparent;
+`;
+const StyledLinkSecondary = styled.a`
+  padding: 2rem 4rem;
+  border: 1px solid ${Colors.brandSecondary};
+  color: ${Colors.black};
+  cursor: pointer;
+  background-color: ${Colors.brandSecondary};
+`;
 
+export const Landing: FC = () => {
   return (
-    <Layout>
-      <LayoutHeader>
-        <Container>
-          <Header skillWalletData={skillWalletData} />
-        </Container>
-      </LayoutHeader>
-      <LayoutMain>
-        <Container>
-          <Welcome skillWalletData={skillWalletData} />
-        </Container>
-      </LayoutMain>
-      <LayoutFooter>
-        <Stack justifyContent="end" gap={5} alignItems="center">
-          <p>Stuff</p>
-          <p>Stuff</p>
-          <p>Stuff</p>
-          <p>Stuff</p>
-          <p>Stuff</p>
-        </Stack>
-      </LayoutFooter>
-    </Layout>
+    <Stack flow="row" gap={5}>
+      <Banner />
+      <Stack justifyContent="center" gap={5}>
+        <Link href="/works">
+          <StyledLinkSecondary>How it works</StyledLinkSecondary>
+        </Link>
+        <Link href="/buy">
+          <StyledLink>Get minting</StyledLink>
+        </Link>
+      </Stack>
+    </Stack>
   );
 };
 
-export default HomePage;
+export default Landing;

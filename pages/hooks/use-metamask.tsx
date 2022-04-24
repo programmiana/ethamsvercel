@@ -11,8 +11,6 @@ export function useMetamask() {
 
   useEffect(() => {
     if (window.ethereum) {
-      console.log("metamask is installed");
-
       window.ethereum
         .request({ method: "eth_requestAccounts" })
         .then((accounts) => {
@@ -25,6 +23,7 @@ export function useMetamask() {
           });
         })
         .catch((err) => {
+          console.log("metamask is not installed");
           console.log(err);
         });
       setWeb3Provider(new Web3(window.ethereum));

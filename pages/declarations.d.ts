@@ -14,7 +14,6 @@ declare namespace JSX {
     }
    
 }
-
 declare interface Confetti {
     props: undefined
 }
